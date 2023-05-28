@@ -13,61 +13,66 @@ var blueSound = new Audio("sounds/blue.mp3");
 // event listeners
 
 greenButton.addEventListener("click", function() {
-    this.parentElement.style.backgroundColor = "white";
-    this.parentElement.style.scale = "2";
+    let parent = this.parentElement;
+    parent.style.backgroundColor = "white";
+    parent.style.scale = "2";
     greenSound.play();
-    // set pages body background to green gradient with transition
-    document.getElementsByTagName("body")[0].classList.add("gradient-transition");
-    document.getElementsByTagName("body")[0].style.background = "linear-gradient(to right, #00b09b, #96c93d)";
+    updateBackground(90, "green", "lime");
+    parent.style.zIndex = "1";
+
     setTimeout(() => {
-        this.parentElement.style.scale = "1";
-        this.parentElement.style.backgroundColor = "rgba(0, 255, 0, 0.5)";
-        document.getElementsByTagName("body")[0].style.background = "";
-        document.getElementsByTagName("body")[0].classList.remove("gradient-transition");
+        parent.style.scale = "1";
+        parent.style.background = "rgba(0, 255, 0, 0.5)";
     }, 1000);
 });
 
 redButton.addEventListener("click", function() {
-    this.parentElement.style.backgroundColor = "white";
-    this.parentElement.style.scale = "2";
+    
+    let parent = this.parentElement;
+    parent.style.backgroundColor = "white";
+    parent.style.scale = "2";
+    parent.style.zIndex = "1";
     redSound.play();
-    // set pages body background to red gradient with transition
-    document.getElementsByTagName("body")[0].classList.add("gradient-transition");
-    document.getElementsByTagName("body")[0].style.background = "linear-gradient(to right, #f12711, #f5af19)";
+    updateBackground(90, "red", "orange");
     setTimeout(() => {
-        this.parentElement.style.backgroundColor = "rgba(255, 0, 0, 0.5)";
-        this.parentElement.style.scale = "1";
-        document.getElementsByTagName("body")[0].style.background = "";
-        document.getElementsByTagName("body")[0].classList.remove("gradient-transition");
+        parent.style.scale = "1";
+        parent.style.background = "rgba(255, 0, 0, 0.5)";
+        
     }, 1000);
 });
 
 yellowButton.addEventListener("click", function() {
-    this.parentElement.style.backgroundColor = "white";
-    this.parentElement.style.scale = "2";
-    yellowSound.play();
-    // set pages body background to yellow gradient with transition
-    document.getElementsByTagName("body")[0].classList.add("gradient-transition");
-    document.getElementsByTagName("body")[0].style.background = "linear-gradient(to right, #f7ff00, #db36a4)";
-    setTimeout(() => {
-        this.parentElement.style.backgroundColor = "rgba(255, 255, 0, 0.5)";
-        this.parentElement.style.scale = "1";
-        document.getElementsByTagName("body")[0].style.background = "";
-        document.getElementsByTagName("body")[0].classList.remove("gradient-transition");
+    let parent = this.parentElement;
+    parent.style.backgroundColor = "white";
+    parent.style.scale = "2";
+    parent.style.zIndex = "1";
+    updateBackground(90, "yellow", "orange");
+    yellowSound.play(); 
+    setTimeout(() => { 
+        parent.style.scale = "1"; 
+        parent.style.background = "rgba(255, 255, 0, 0.5)";
     }, 1000);
 });
 
 blueButton.addEventListener("click", function() {
-    this.parentElement.style.backgroundColor = "white";
-    this.parentElement.style.scale = "2";
+    let parent = this.parentElement;
+    parent.style.backgroundColor = "white";
+    parent.style.scale = "2";
     blueSound.play();
-    // set pages body background to blue gradient with transition
-    document.getElementsByTagName("body")[0].classList.add("gradient-transition");
-    document.getElementsByTagName("body")[0].style.background = "linear-gradient(to right, #00c6ff, #0072ff)";
+    parent.style.zIndex = "1";
+    updateBackground(90, "cyan", "darkblue");
     setTimeout(() => {
-        this.parentElement.style.backgroundColor = "rgba(0, 0, 255, 0.5)";
-        this.parentElement.style.scale = "1";
-        document.getElementsByTagName("body")[0].style.background = "";
-        document.getElementsByTagName("body")[0].classList.remove("gradient-transition");
+        parent.style.scale = "1";
+        parent.style.background = "rgba(0, 0, 255, 0.5)";
     }  , 1000);
 });
+
+function updateBackground(angle, targetColor1, targetColor2) {
+  const overlay = document.querySelector(".gradient-overlay");
+  overlay.style.backgroundImage = `linear-gradient(${angle}deg, ${targetColor1}, ${targetColor2})`;
+  overlay.classList.add("gradient-transition");
+
+  setTimeout(() => {
+    overlay.classList.remove("gradient-transition");
+  }, 1000);
+}
