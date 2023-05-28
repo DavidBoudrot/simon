@@ -21,6 +21,7 @@ greenButton.addEventListener("click", function() {
     parent.style.zIndex = "1";
 
     setTimeout(() => {
+        parent.style.zIndex = "0";
         parent.style.scale = "1";
         parent.style.background = "rgba(0, 255, 0, 0.5)";
     }, 1000);
@@ -35,6 +36,7 @@ redButton.addEventListener("click", function() {
     redSound.play();
     updateBackground(90, "red", "orange");
     setTimeout(() => {
+        parent.style.zIndex = "0";
         parent.style.scale = "1";
         parent.style.background = "rgba(255, 0, 0, 0.5)";
         
@@ -49,6 +51,7 @@ yellowButton.addEventListener("click", function() {
     updateBackground(90, "yellow", "orange");
     yellowSound.play(); 
     setTimeout(() => { 
+        parent.style.zIndex = "0";
         parent.style.scale = "1"; 
         parent.style.background = "rgba(255, 255, 0, 0.5)";
     }, 1000);
@@ -62,6 +65,7 @@ blueButton.addEventListener("click", function() {
     parent.style.zIndex = "1";
     updateBackground(90, "cyan", "darkblue");
     setTimeout(() => {
+        parent.style.zIndex = "0";
         parent.style.scale = "1";
         parent.style.background = "rgba(0, 0, 255, 0.5)";
     }  , 1000);
